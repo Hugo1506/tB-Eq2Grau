@@ -1,19 +1,31 @@
 ﻿@{
     //este pedaço de código está escrito em c#
     ViewData["Title"] = "Home Page";
-}
-<form>
-    <div class="text-center">
-        <h1 class="display-4">Soloções de uma Equação de 2º Grau</h1>
-    </div>
 
+    //var aux
+    string resposta = "";
+    //recuperar os dados pelo controller
+    if (!String.IsNullOrEmpty(ViewBag.X1))
+    {
+        resposta = "As raizes são: x1 = " + ViewBag.X1 + " e X2 = " + ViewBag.X2;
+    }
+}
+
+<div class="text-center">
+    <h1 class="display-4">Soloções de uma Equação de 2º Grau</h1>
+</div>
+<form>
     <!-- recolher os dados dos parametros da equ~ção do 2º grau-->
     <div>
         <p>escreva os parametros da equação</p>
-        A= <input type="text"/><br />
-        B= <input type="text"/><br />
-        C= <input type="text"/><br />
+        A= <input type="text" name="A" /><br />
+        B= <input type="text" name="B" /><br />
+        C= <input type="text" name="C" /><br />
 
-        <input type="submit" value="Calcular"/>
+        <input type="submit" value="Calcular" />
     </div>
 </form>
+<br />
+<h4>
+    @resposta
+</h4>
